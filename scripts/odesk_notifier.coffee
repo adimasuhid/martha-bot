@@ -29,7 +29,7 @@ module.exports = (robot) ->
 
     try
       payload = req.body.payload
-      robot.send user, "Odesk #{payload.job_type} Job from a #{payload.client.payment_verification_status} client: #{payload.title}. Initial details are: #{payload.snippet.substring(0,20)}... Check more at #{payload.url}"
+      robot.send user, "Odesk #{payload.job_type} Job from some #{payload.client.payment_verification_status || "UNVERIFIED"} client: #{payload.title}. Initial details are: #{payload.snippet.substring(0,50)}... Check more at #{payload.url}"
     catch error
       console.log "odesk hook error: #{error}. Payload: #{req.body.payload}"
 
