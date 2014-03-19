@@ -47,7 +47,6 @@ module.exports = (robot) ->
 
     try
       payload = JSON.parse req.body.payload
-      console.log(payload)
       robot.send user, "#{payload.status_message.toUpperCase()} build (#{payload.build_url}) on #{payload.repository.name}:#{payload.branch} by #{payload.author_name} with commit (#{payload.compare_url})"
 
     catch error
